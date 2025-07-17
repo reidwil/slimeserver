@@ -1,5 +1,8 @@
 # FIT Viewer Docker Usage
 
+## View The App HERE
+https://reids-stats.streamlit.app/
+
 ## Build the Docker image
 
 ```bash
