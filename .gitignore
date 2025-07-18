@@ -1,1 +1,6 @@
+__pycache__/
 .venv/
+chat_messages.json.lock
+chat_messages.json
+online_users.json.lock
+online_users.json

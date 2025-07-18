@@ -1,2 +1,2 @@
-fitparse
-streamlit 
+streamlit
+streamlit-autorefresh 
