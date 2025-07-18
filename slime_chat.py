@@ -159,23 +159,12 @@ def show_chat():
     st_autorefresh(interval=5000, key="chat_refresh")
     
     # Header
-    col1, col2, col3 = st.columns([2, 4, 2])
-    with col2:
-        st.markdown(f"""
-        <div style="text-align: center; padding: 1rem;">
-            <h1 style="color: #4CAF50;">🟢 Slime Chat</h1>
-            <p style="color: #888;">Welcome back, <b style="color: #4CAF50;">{st.session_state.username}</b>!</p>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    with col3:
-        if st.button("🚪 Logout", use_container_width=True):
-            st.session_state.logged_in = False
-            st.session_state.username = None
-            # Remove username from URL
-            if "user" in st.query_params:
-                del st.query_params["user"]
-            st.rerun()
+    st.markdown(f"""
+    <div style="text-align: center; padding: 1rem;">
+        <h1 style="color: #4CAF50;">🟢 Slime Chat</h1>
+        <p style="color: #888;">Welcome back, <b style="color: #4CAF50;">{st.session_state.username}</b>!</p>
+    </div>
+    """, unsafe_allow_html=True)
     
     # Main chat area
     messages = load_chat()
@@ -254,6 +243,16 @@ def show_sidebar():
             
             Built with ❤️ using Streamlit
             """)
+        
+        # Logout button at bottom of sidebar
+        st.markdown("---")
+        if st.button("🚪 Logout", use_container_width=True, key="sidebar_logout"):
+            st.session_state.logged_in = False
+            st.session_state.username = None
+            # Remove username from URL
+            if "user" in st.query_params:
+                del st.query_params["user"]
+            st.rerun()
 
 def main():
     """Main application logic"""
